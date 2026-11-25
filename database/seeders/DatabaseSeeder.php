@@ -23,11 +23,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($rollen as $naam => $opmerking) {
-            Rol::query()->create([
-                'Naam' => $naam,
-                'IsActief' => true,
-                'Opmerking' => $opmerking,
-            ]);
+            Rol::query()->firstOrCreate(
+                ['Naam' => $naam],
+                ['IsActief' => true, 'Opmerking' => $opmerking],
+            );
         }
 
         $this->medewerker('Tandarts', 'Sara', 'Veldman', 'tandarts@smilepro.nl', true);
