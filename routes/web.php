@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/uitloggen', [InloggenController::class, 'destroy'])->name('logout');
     Route::get('/tandarts', [InloggenController::class, 'tandarts'])->name('tandarts.dashboard');
     Route::get('/mondhygienist', [InloggenController::class, 'mondhygienist'])->name('mondhygienist.dashboard');
+    Route::get('/patient', [InloggenController::class, 'patient'])->name('patient.dashboard');
 
     Route::get('/assistent/patienten', [PatientZoekenController::class, 'index'])->name('assistent.patienten');
     Route::get('/assistent/patienten/toevoegen', [PatientToevoegenController::class, 'create'])->name('assistent.toevoegen');

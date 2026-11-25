@@ -62,6 +62,11 @@ class InloggenController extends Controller
         return $this->dashboard('Mondhygiënist', 'mondhygienist.dashboard');
     }
 
+    public function patient(): View
+    {
+        return $this->dashboard('Patiënt', 'patient.dashboard');
+    }
+
     public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
@@ -94,7 +99,7 @@ class InloggenController extends Controller
             return null;
         }
 
-        $gebruiker->loadMissing(['rol', 'medewerker']);
+        $gebruiker->loadMissing(['rol', 'medewerker', 'patient']);
 
         return $gebruiker;
     }

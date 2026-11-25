@@ -48,24 +48,30 @@ class Gebruiker extends Authenticatable
         return $this->hasOne(Medewerker::class, 'GebruikerId', 'Id');
     }
 
+    public function patient(): HasOne
+    {
+        return $this->hasOne(Patient::class, 'GebruikerId', 'Id');
+    }
+
     public function startroute(): string
     {
         return match ($this->rol?->Naam) {
             'Tandarts' => 'tandarts.dashboard',
             'Mondhygiënist' => 'mondhygienist.dashboard',
             'Beheerder' => 'beheerder.medewerkers',
+            'Patiënt' => 'patient.dashboard',
             default => 'assistent.patienten',
         };
     }
 
     public function weergavenaam(): string
     {
-        $medewerker = $this->medewerker;
+        $persoon = $this->medewerker ?? $this->patient;
 
-        if ($medewerker === null) {
+        if ($persoon === null) {
             return $this->Emailadres;
         }
 
-        return trim($medewerker->Voornaam.' '.$medewerker->Achternaam);
+        return trim($persoon->Voornaam.' '.$persoon->Achternaam);
     }
 }

@@ -15,8 +15,9 @@ Open daarna `http://127.0.0.1:8000/inloggen`.
 
 Testdata, wachtwoord `password`:
 
-- `assistent@smilepro.nl` komt bij patiënt zoeken, toevoegen en bekijken
-- `beheerder@smilepro.nl` komt bij de medewerkers
-- `tandarts@smilepro.nl` komt op het tandartsdashboard
-- `mondhygienist@smilepro.nl` komt op het mondhygiënistendashboard
-- `inactief.tandarts@smilepro.nl` wordt geweigerd
+- `patient`: `jan.jansen@example.nl`, `eva.devries@example.nl`, `noah.bakker@example.nl`
+- `tandarts`: `tandarts@smilepro.nl`
+- `mondhygienist`: `mondhygienist@smilepro.nl`
+- `assistent`: `assistent@smilepro.nl`
+- `beheerder`: `beheerder@smilepro.nl`
+- inactief, wordt geweigerd: `inactief.patient@example.nl`, `inactief.tandarts@smilepro.nl`, `inactief.mondhygienist@smilepro.nl`, `inactief.assistent@smilepro.nl`, `inactief.beheerder@smilepro.nl`

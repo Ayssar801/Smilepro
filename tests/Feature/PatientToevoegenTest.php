@@ -32,7 +32,7 @@ class PatientToevoegenTest extends TestCase
             ->post('/assistent/patienten/toevoegen', $this->geldigeGegevens())
             ->assertForbidden();
 
-        $this->assertSame(3, Patient::query()->count());
+        $this->assertSame(4, Patient::query()->count());
     }
 
     public function test_geldige_gegevens_maken_een_patient_met_nummer(): void
@@ -72,7 +72,7 @@ class PatientToevoegenTest extends TestCase
             ->assertRedirect('/assistent/patienten/toevoegen')
             ->assertSessionHasErrors('voornaam');
 
-        $this->assertSame(3, Patient::query()->count());
+        $this->assertSame(4, Patient::query()->count());
     }
 
     public function test_ongeldig_emailadres_wordt_niet_opgeslagen(): void
@@ -85,7 +85,7 @@ class PatientToevoegenTest extends TestCase
             ])
             ->assertSessionHasErrors('emailadres');
 
-        $this->assertSame(3, Patient::query()->count());
+        $this->assertSame(4, Patient::query()->count());
     }
 
     public function test_dubbel_emailadres_wordt_niet_opgeslagen(): void
@@ -98,7 +98,7 @@ class PatientToevoegenTest extends TestCase
             ])
             ->assertSessionHasErrors(['emailadres' => 'Dit e-mailadres is al in gebruik.']);
 
-        $this->assertSame(3, Patient::query()->count());
+        $this->assertSame(4, Patient::query()->count());
     }
 
     public function test_dubbele_persoon_wordt_niet_opgeslagen(): void
@@ -114,7 +114,7 @@ class PatientToevoegenTest extends TestCase
             ])
             ->assertSessionHasErrors(['voornaam' => 'Deze patiënt staat al geregistreerd.']);
 
-        $this->assertSame(3, Patient::query()->count());
+        $this->assertSame(4, Patient::query()->count());
     }
 
     private function alsAssistent(): self

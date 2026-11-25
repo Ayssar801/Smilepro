@@ -58,6 +58,17 @@ class InloggenTest extends TestCase
             ->assertSee('Je bent ingelogd als mondhygiënist.');
     }
 
+    public function test_patient_komt_op_het_dashboard(): void
+    {
+        $this->inloggen('jan.jansen@example.nl')
+            ->assertRedirect(route('patient.dashboard'));
+
+        $this->get(route('patient.dashboard'))
+            ->assertOk()
+            ->assertSee('Welkom, Jan Jansen')
+            ->assertSee('Je bent ingelogd als patiënt.');
+    }
+
     public function test_beheerder_komt_bij_de_medewerkers(): void
     {
         $this->inloggen('beheerder@smilepro.nl')
