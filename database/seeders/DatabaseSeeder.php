@@ -10,7 +10,7 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public const WACHTWOORD = 'Welkom123!';
+    public const WACHTWOORD = 'password';
 
     public function run(): void
     {

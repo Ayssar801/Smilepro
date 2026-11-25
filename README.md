@@ -13,7 +13,7 @@ php artisan serve
 
 Open daarna `http://127.0.0.1:8000/inloggen`.
 
-Testdata, wachtwoord `Welkom123!`:
+Testdata, wachtwoord `password`:
 
 - `assistent@smilepro.nl` komt bij patiënt zoeken, toevoegen en bekijken
 - `beheerder@smilepro.nl` komt bij de medewerkers
